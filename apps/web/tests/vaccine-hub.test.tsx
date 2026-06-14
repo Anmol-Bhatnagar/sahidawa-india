@@ -3,15 +3,6 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import VaccineHubPage from "@/app/[locale]/vaccine-hub/page";
 
-jest.mock("next-intl", () => ({
-    useTranslations: () => (key: string) => key,
-    useFormatter: () => ({
-        dateTime: (date: Date) => {
-            const d = new Date(date);
-            return `${d.getDate()} ${d.toLocaleString("en-US", { month: "short" })} ${d.getFullYear()}`;
-        },
-    }),
-}));
 
 // Mock localStorage
 const localStorageMock = (() => {

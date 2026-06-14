@@ -15,14 +15,6 @@ jest.mock("@/lib/supabase", () => ({
     },
 }));
 
-jest.mock("next-intl", () => ({
-    useFormatter: () => ({
-        dateTime: (date: Date) => {
-            const d = new Date(date);
-            return `${d.getDate()} ${d.toLocaleString("en-US", { month: "short" })} ${d.getFullYear()}`;
-        },
-    }),
-}));
 
 const TRACKER_STORAGE_KEY = "vaccine-hub-child-tracker-v1";
 

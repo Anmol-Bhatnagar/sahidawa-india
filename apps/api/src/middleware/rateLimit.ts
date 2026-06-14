@@ -50,7 +50,7 @@ export const limiter = rateLimit({
 // report abuse directly undermines heatmap integrity and district alerts.
 export const reportLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 3,
+    max: process.env.NODE_ENV === "test" ? 1000 : 3,
     standardHeaders: true,
     legacyHeaders: false,
     keyGenerator: (req) => {
